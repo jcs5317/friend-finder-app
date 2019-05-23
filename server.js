@@ -1,68 +1,25 @@
 // dependencies 
+const bodyParser= require("body-parser");
 const express = require("express");
 const path = require("path");
 
-// runs express
+
+// runs express with port for host or local
 const app = express(); 
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 8080; 
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes.js")(app);
 
-//begins and listens to server 
-app.get("/", function(req, res){
-  res.send("Hello World");
+// Listener
+
+app.listen(PORT, function() {
+    console.log("App listening on PORT: " + PORT);
 });
-
-app.listen(PORT, function () {
-    console.log("server is up and running on port " + PORT)
-}); 
-
-/*data arrays 
-
-let reservations = [
-
-    {
-        name: "jimbobjoe", 
-        phoneNumber: "Phone Number", 
-        email: "bob@bob.com", 
-        uniqueID: "ID"
-
-    }
-
-
-]; 
-
-// Routes 
-
-// this will use send path for home html 
-app.get("/", function(req, res) {
-    res.send("Welcome to Hot Restaraunt!");
-  });
-
-
-  // will need to add app.gets for other html pages
-
-//displays table infromation in JSON format 
-  app.get("/api/tables", function(req, res) {
-    return res.json(reservations);
-  });
-
-  // post new reservations
-  app.post("/api/tables", function(req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body parsing middleware
-    var newReservation = req.body;
-  
-    // Using a RegEx Pattern to remove spaces from newCharacter
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    //newReservation.name = newReservation.name.replace(/\s+/g, "").toLowerCase();
-  
-    console.log(newReservation);
-  
-    reservations.push(newReservation);
-  
-    res.json(newReservation);
-  });
-*/
