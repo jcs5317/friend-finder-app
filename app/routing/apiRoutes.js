@@ -13,20 +13,22 @@ module.exports = function(app) {
         // Code to find best match
 
         // keys to hold comparison results
-        const smallScore = 1000000000;
-        const topFriend;
-        
+        var smallScore = 1000000000;
+        var topFriend;
+        // let userScore = req.body.scores;
+        // const scoresArr = [];
+        // let topMatch = 0;
 
         //For loop through each friend in friends array to sum up the matches
-        for (let i = 0; i < friends.length; i++) {
+        for (var i = 0; i < friends.length; i++) {
             
-            const compDiff = [];
+            var compDiff = [];
 
-            for (let j = 0; j < friends[i].scores.length; j++) {
+            for (var j = 0; j < friends[i].scores.length; j++) {
                 compDiff.push(Math.abs(friends[i].scores[j] - req.body.scores[j]));
 
             }
-            const matchScore = compDiff.reduce(a, b);
+            var matchScore = compDiff.reduce(a, b);
 
             if (matchScore < smallScore) {
                 smallScore = matchScore;
