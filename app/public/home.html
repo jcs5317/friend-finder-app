@@ -19,10 +19,10 @@
     <div class="jumbotron">
       <h1><i class= "fa fa-facebook-square" aria-hidden= "true"></i>Friend Finder</h1>
       <hr>
-      <h3>Click the survey below to answer a few basic questions... </h3>
-      <h3>Then get matched with a compatible friend!</h3>
+      <h3>Click the survey below to answer a few compatibility questions... </h3>
+      <h3>Then get matched with an awesome friend!</h3>
       <br>
-      <a href="/survey"><button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span>Take Survey</button></a>
+      <a href="/survey"><button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span>Go to Survey</button></a>
     </div>
 
         
@@ -30,30 +30,6 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    $("#search-btn").on("click", function() {
-      var searchedCharacter = $("#character-search").val().trim();
-
-      // Using a RegEx Pattern to remove spaces from searchedCharacter
-      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
-
-      $.get("/api/characters/" + searchedCharacter, function(data) {
-        console.log(data);
-        if (data) {
-          $("#stats").show();
-          $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
-        }
-        else {
-          $("#name").text("The force is not strong with this one. Your character was not found.");
-          $("#stats").hide();
-        }
-      });
-    });
-  </script>
 </body>
 <!--footer for link to api friend list and github repo-->
 </html>
