@@ -12,23 +12,21 @@ module.exports = function(app) {
     app.post("/api/friends", function(req, res) {
         // Code to find best match
 
-        // Initialize array to hold comparison results
-        var smallScore = 1000000000;
-        var topFriend;
-        // let userScore = req.body.scores;
-        // const scoresArr = [];
-        // let topMatch = 0;
+        // keys to hold comparison results
+        const smallScore = 1000000000;
+        const topFriend;
+        
 
         //For loop through each friend in friends array to sum up the matches
-        for (var i = 0; i < friends.length; i++) {
+        for (let i = 0; i < friends.length; i++) {
             
-            var compDiff = [];
+            const compDiff = [];
 
-            for (var j = 0; j < friends[i].scores.length; j++) {
+            for (let j = 0; j < friends[i].scores.length; j++) {
                 compDiff.push(Math.abs(friends[i].scores[j] - req.body.scores[j]));
 
             }
-            var matchScore = compDiff.reduce((a, b) => a + b, 0);
+            const matchScore = compDiff.reduce(a, b);
 
             if (matchScore < smallScore) {
                 smallScore = matchScore;

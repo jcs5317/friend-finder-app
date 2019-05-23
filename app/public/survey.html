@@ -27,7 +27,6 @@
         <h4>Link to Image (Required)</h4>
         <input type="text" id="photo" class="form-control" required="">
         <hr>
-        <hr>
 
         <form>
             <h3><strong>Question 1</strong></h3>
@@ -70,7 +69,7 @@
             <br><br>
 
             <h3><strong>Question 4</strong></h3>
-            <h4>You rarely do somehing just out of sheeer curiosity.</h4>
+            <h4>You rarely do something just out of sheeer curiosity.</h4>
 
             <select data-placeholder="" class="chosen-select" id="q4" required>
                 <option value="">Select an option</option>
@@ -145,7 +144,7 @@
             <br><br>
 
             <h3><strong>Question 10</strong></h3>
-            <h4>You would reather stay home than travel for holidays.</h4>
+            <h4>You would rather stay home than travel for holidays.</h4>
             <select data-placeholder="" class="chosen-select" id="q10" required>
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -180,7 +179,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" class="img-responsive"
+                    <img id="match-img" class="img-responsive, height: 300px, width: 85%"
                         src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
                 </div>
                 <div class="modal-footer">
@@ -208,9 +207,6 @@
             }
         };
 
-        //for (var selector in config) {
-        //    $(selector).chosen(config[selector]);
-        //}
 
         // Capture the form inputs 
         $("#submit").on("click", function () {
