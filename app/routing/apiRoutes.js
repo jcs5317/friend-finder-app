@@ -17,9 +17,7 @@ module.exports = (app) => {
         // keys to hold comparison results
         let smallScore = 1000000000;
         let topFriend;
-        // let userScore = req.body.scores;
-        // const scoresArr = [];
-        // let topMatch = 0;
+
 
         //For loop through each friend in friends array to make matches
         for (let i = 0; i < friends.length; i++) {
