@@ -1,34 +1,37 @@
 // Load data
-const friends = require("../data/friends.js");
-const path = require("path");
+const friends = require("../data/friends");
 
 // Routing
-module.exports = function(app) {
+module.exports = (app) => {
 
-    //API GET requests
-    app.get("/api/friends", function(req, res) {
+    //GET requests
+    app.get("/api/friends", (req, res) => {
         res.json(friends);
     });
-    app.post("/api/friends", function(req, res) {
-        // Code to find best match
 
+    //POST requests
+    app.post("/api/friends", (req, res) => {
+        // console.log(req.body)
+        // console.log(friends)
+        // Code to find best matchs
         // keys to hold comparison results
-        var smallScore = 1000000000;
-        var topFriend;
+        let smallScore = 1000000000;
+        let topFriend;
         // let userScore = req.body.scores;
         // const scoresArr = [];
         // let topMatch = 0;
 
         //For loop through each friend in friends array to sum up the matches
-        for (var i = 0; i < friends.length; i++) {
+        for (let i = 0; i < friends.length; i++) {
             
-            var compDiff = [];
+            // let compDiff = [];
+            var matchScore;
 
-            for (var j = 0; j < friends[i].scores.length; j++) {
-                compDiff.push(Math.abs(friends[i].scores[j] - req.body.scores[j]));
-
+            for (let j = 0; j < friends[i].scores.length; j++) {
+                matchScore = (Math.abs(friends[i].scores[j] - parseInt(req.body.scores[j])));
             }
-            var matchScore = compDiff.reduce(a, b);
+
+            // let matchScore = compDiff.reduce(a, b);
 
             if (matchScore < smallScore) {
                 smallScore = matchScore;
@@ -36,12 +39,10 @@ module.exports = function(app) {
             }
         }
 
+        // Add current user to friendsArray
+        //console.log(req.body)
+        friends.push(req.body);
         // Return top match to client
         res.json(topFriend);
-
-        // Add current user to friendsArray
-        console.log(req.body)
-        friends.push(req.body);
-    });
-    
+    }); 
 }
