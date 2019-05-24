@@ -21,7 +21,7 @@ module.exports = (app) => {
         // const scoresArr = [];
         // let topMatch = 0;
 
-        //For loop through each friend in friends array to sum up the matches
+        //For loop through each friend in friends array to make matches
         for (let i = 0; i < friends.length; i++) {
             
             // let compDiff = [];
