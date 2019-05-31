@@ -8,5 +8,6 @@
 - Complete by selecting a response for each question on whether you strongly disagree to strongly agree.
 - Friend Finder then compares, with a special algorithm, each of your response selections to the database of other friends responses.
 - Finally after clicking submit, Friend Finder displays the top friend for you.
-<br>
+
+## Deployed site
 https://limitless-everglades-31564.herokuapp.com/
